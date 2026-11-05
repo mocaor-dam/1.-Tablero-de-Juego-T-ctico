@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Tablero de Juego Tactico"),
+          title: Text("Tablero de Juego Tactico", style: TextStyle(color: Colors.white),),
           backgroundColor: Colors.grey[800],
         ),
         body: Column(
