@@ -37,7 +37,7 @@ class _GameScreenState extends State<GameScreen>{
               Column(
                 children: [
                   Text("Player 1"),
-                  Image.asset(Random())
+                  Image.asset("$_changeImage()")
 
                 ],
               ),
