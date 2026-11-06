@@ -63,6 +63,10 @@ flutter:
   - assets/images/rock.png
   - assets/images/scissors.png
   - assets/images/play.png
+  - assets/images/atun_rojo.jpg
+  - assets/images/choco.jpg
+  - assets/images/gamba_blanca.jpg
+  - assets/images/sardina.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
