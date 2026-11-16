@@ -15,12 +15,17 @@ class SolarSystemApp extends StatelessWidget{
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SolarSystemMenu(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) =>  SolarSystemMenu(),
+        '/detalle': (context) => PlanetaScreen(),
+
+      },
     );
   }
 }
 
-class SolarSystemMenu() extends StatefulWidget{
+class SolarSystemMenu extends StatefulWidget{
 
   @override
   State<StatefulWidget> createState() => _SolarSystemScreenState();
@@ -37,16 +42,20 @@ class _SolarSystemScreenState extends State<SolarSystemMenu>{
         backgroundColor: Colors.blueGrey,
       ),
 
-      body: ListView.builder(
+      body: ListView.separated(
         itemCount: planetas.length,
+        separatorBuilder: (context, index) =>
+        const Divider(color: Colors.grey, thickness: 1),
         itemBuilder: (BuildContext context, int index) {
           return ListTile(
             title: Text(planetas[index].nombre),
             subtitle: Text(planetas[index].distanciaConElSol),
             leading: Image.asset(planetas[index].imagenUrl),
-            trailing: IconButton(onPressed: () =>
-                Navigator.push(context, MaterialPageRoute(builder: (_) => PlanetaScreen(index: index))), 
-                icon: Icon(Icons.chevron_right)),
+            trailing: Icon(Icons.chevron_right),
+            onTap: (){
+              Navigator.pushNamed(context, '/detalle', arguments: index);
+            },
+
           );
         },
 
