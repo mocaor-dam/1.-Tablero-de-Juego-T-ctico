@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:tablero_de_juego_tactico_moises/solar_system_ejercicio/solar_system_data.dart';
 
 class PlanetaScreen extends StatelessWidget {
+  final int index;
 
-
-  PlanetaScreen({super.key});
+  PlanetaScreen({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {
-    final int index = ModalRoute.of(context)!.settings.arguments as int;
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(

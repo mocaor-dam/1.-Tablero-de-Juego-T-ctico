@@ -16,10 +16,18 @@ class SolarSystemApp extends StatelessWidget{
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
-      routes: {
-        '/': (context) =>  SolarSystemMenu(),
-        '/detalle': (context) => PlanetaScreen(),
-
+      onGenerateRoute: (RouteSettings settings){
+        switch(settings.name){
+          case '/':
+            return MaterialPageRoute(builder: (_) => SolarSystemMenu());
+          case '/detalle':
+            final int index = settings.arguments as int;
+            return MaterialPageRoute(builder: (_) => PlanetaScreen(index: index),);
+          default:
+            return MaterialPageRoute(builder: (_) => const Scaffold(
+              body: Center(child: Text('Ruta no encontrada'),),
+            ));
+        }
       },
     );
   }
